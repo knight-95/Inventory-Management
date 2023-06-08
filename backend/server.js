@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
+const userRoute = require("./routes/userRoute");
+
 
 const url = "mongodb://localhost:27017/invent";
 
@@ -12,6 +14,10 @@ const url = "mongodb://localhost:27017/invent";
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json());
+
+
+//Routes Middleware
+app.use("/api/users",userRoute);
 
 
 //Routes
