@@ -8,6 +8,17 @@ const PORT = process.env.PORT || 5000;
 
 const url = "mongodb://localhost:27017/invent";
 
+//Middlewares
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+app.use(bodyParser.json());
+
+
+//Routes
+app.get("/",(req,res)=>{
+    res.send("Home Page");
+})
+
 mongoose
     .connect(url,{})
     .then(() => {
